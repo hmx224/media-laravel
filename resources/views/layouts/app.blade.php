@@ -11,14 +11,44 @@
 
     <title>@yield('title')</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">
+
+    <script src="/js/lib/jquery-1.10.2.min.js"></script>
+    <script src="/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]> <![endif]-->
+    <script src="/bootstrap-3.3.7/js/html5shiv.min.js"></script>
+    <script src="/bootstrap-3.3.7/js/respond.min.js"></script>
 </head>
 <body>
 
-@yield('content')
+@include('layouts.header')
 
-@yield('footer')
+<div class="container">
+    <div class="blog-header">
+    </div>
+    <div class="row">
+        @yield('content')
 
-@yield('js')
+        @include('layouts.sidebar')
+    </div>
+</div><!-- /.row -->
+
+
+@include('layouts.footer')
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script type="text/javascript" src="/js/wangEditor.min.js"></script>
+<script src="/js/ylaravel.js"></script>
 
 </body>
 </html>

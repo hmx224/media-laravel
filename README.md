@@ -31,3 +31,6 @@ Nginx
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
+    
+### layouts布局
+- 原则是先进行首页挖空处理，然后再一一对应，进行布局操作，详情见app.blade.php
