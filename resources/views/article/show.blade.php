@@ -7,8 +7,8 @@
     <div class="col-sm-8 blog-main">
         <div class="blog-post">
             <div style="display:inline-flex">
-                <h2 class="blog-post-title">你好你好</h2>
-                <a style="margin: auto" href="/posts/62/edit">
+                <h2 class="blog-post-title">{{ $article->title }}</h2>
+                <a style="margin: auto" href="/articles/{{ $article->id }}/edit">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
                 <a style="margin: auto" href="/posts/62/delete">
@@ -16,15 +16,14 @@
                 </a>
             </div>
 
-            <p class="blog-post-meta">May 14, 2017 by <a href="#">Kassandra Ankunding2</a></p>
+            <p class="blog-post-meta">{{ $article->created_at->toFormattedDateString() }} by <a href="#">Kassandra
+                    Ankunding2</a></p>
 
             <p>
-            <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好<img
-                        src="http://127.0.0.1:8000/storage/72c76b674ec8793fcfd6555ff371bfbd/nxC9ozLfkORmoY92q9lPsejXchVvdNO2cwHiR2Jf.jpeg"
-                        alt="63" style="max-width: 100%;">你好你好似懂非懂说</p>
+            <p>{{ $article->content }}</p>
             <p><br></p></p>
             <div>
-                <a href="/posts/62/zan" type="button" class="btn btn-primary btn-lg">赞</a>
+                <a href="/articles/{{ $article->id }}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
 
             </div>
         </div>

@@ -34,3 +34,13 @@ Nginx
     
 ### layouts布局
 - 原则是先进行首页挖空处理，然后再一一对应，进行布局操作，详情见app.blade.php
+
+### migrate 数据表
+- 生成迁移文件文章表 php artisan make:migration create_articles_table
+- php artisan migrate 按照时间生成迁移文件
+  - 会有错误提示,字符串长度限制
+  - AppServiceProvider中添加默认字段  Schema::defaultStringLength(191);
+  - tinker的交互界面，存储完数据，需要设置市区 Asia/Shangai
+  - 数据填充 faker -
+  - 进入 tinker界面 factory(App\Models\Article::class,10)->make();打印界面上， ... create() 创建
+   
