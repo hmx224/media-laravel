@@ -30,12 +30,15 @@ class ArticleController extends Controller
 
     public function store()
     {
-        //验证
-        $this->validate(request()->all(),[
-            'title' =>'required|string|max:100|min:5',
-            'content'=>'required|string'
+        //验证  //英文改中文提示 resource -》lang-》，直接改配置文件app.php
+        $this->validate(request(), [
+            'title' => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10'
         ]);
+
+
         $article = Article::create(request(['title', 'content']));
+
         return redirect('/articles');
     }
 
@@ -47,5 +50,14 @@ class ArticleController extends Controller
     public function update()
     {
 
+    }
+
+    //编辑器图片上传
+    public function imageUpload(Request $request)
+    {
+//        dd($request->all());die; //
+        //TODO
+        $path = $request->file('wangEditorH5File')->storePublicly(md5(time()));
+        return asset('storage/' . $path);
     }
 }

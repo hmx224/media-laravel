@@ -23,6 +23,7 @@ Route::get('/', function () {
     //创建文章
     Route::get('articles/create','ArticleController@create');
     Route::post('articles','ArticleController@store');
+
     //文章详情
     Route::get('articles/{article}','ArticleController@show');
 
@@ -31,5 +32,7 @@ Route::get('/', function () {
     Route::put('articles/{article}','ArticleController@update');
     //删除文章
     Route::post('articles/delete/{article}','ArticleController@delete');
+    //图片上传
+    Route::post('articles/image/upload','ArticleController@imageUpload');
 
 //});

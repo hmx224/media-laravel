@@ -11,6 +11,7 @@
 - 创建models 文件 php artisan make:model Models/Test
 - 创建控制器  php artisan make:controller ArticleController
 - github 上搜组件：bootstrap，respond,html5shiv
+- php artisan storage:link  图片链接地址
 
 ### apache，nginx中页面404
 Apache
@@ -44,3 +45,10 @@ Nginx
   - 数据填充 faker -
   - 进入 tinker界面 factory(App\Models\Article::class,10)->make();打印界面上， ... create() 创建
    
+   
+   
+   
+   
+### 错误记录
+- Unable to guess the mime type as no guessers are available
+ 没有开启php_fileinfo扩展。

@@ -20,7 +20,7 @@
                     Ankunding2</a></p>
 
             <p>
-            <p>{{ $article->content }}</p>
+            {!!  $article->content  !!}
             <p><br></p></p>
             <div>
                 <a href="/articles/{{ $article->id }}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
