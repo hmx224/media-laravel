@@ -13,7 +13,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate();
+        $articles = Article::orderBy('created_at', 'desc')->where('isshow', '1')->paginate();
 
         return view('article/index', compact('articles'));
     }
@@ -36,20 +36,38 @@ class ArticleController extends Controller
             'content' => 'required|string|min:10'
         ]);
 
-
         $article = Article::create(request(['title', 'content']));
 
         return redirect('/articles');
     }
 
-    public function edit()
+    public function edit(Article $article)
     {
-        return view('article/edit');
+        return view('article/edit', compact('article'));
     }
 
-    public function update()
+    public function update(Article $article)
+    {
+        $this->validate(request(), [
+            'title' => 'required|string|max:100|min:5',
+            'content' => 'required|string|min:10'
+        ]);
+
+        $article->title   = request('title');
+        $article->content = request('content');
+
+        $article->save();
+
+        return redirect("articles/{$article->id}");
+    }
+
+    public function delete(Article $article)
     {
 
+        $article->isshow = 0;
+        $article->save();
+
+        return redirect('articles');
     }
 
     //编辑器图片上传

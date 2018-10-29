@@ -30,8 +30,10 @@ Route::get('/', function () {
     //编辑文章
     Route::get('articles/{article}/edit','ArticleController@edit');
     Route::put('articles/{article}','ArticleController@update');
+
     //删除文章
-    Route::post('articles/delete/{article}','ArticleController@delete');
+    Route::get('articles/{article}/delete','ArticleController@delete');
+
     //图片上传
     Route::post('articles/image/upload','ArticleController@imageUpload');
 

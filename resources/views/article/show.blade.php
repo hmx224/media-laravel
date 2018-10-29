@@ -8,10 +8,12 @@
         <div class="blog-post">
             <div style="display:inline-flex">
                 <h2 class="blog-post-title">{{ $article->title }}</h2>
+
                 <a style="margin: auto" href="/articles/{{ $article->id }}/edit">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
-                <a style="margin: auto" href="/posts/62/delete">
+
+                <a style="margin: auto" href="/articles/{{ $article->id }}/delete" >
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </a>
             </div>
